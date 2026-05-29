@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signature Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/signature-projects.css" />
+</head>
+<body>
+  <section class="projects-section" aria-label="Signature projects">
+    <header class="projects-header">
+      <div>
+        <p class="eyebrow reveal">SIGNATURE PROJECTS</p>
+        <h1 class="reveal">Monumental Expressions Of Heritage</h1>
+      </div>
+      <p class="header-note reveal">
+        Landmark works composed for architectural presence, cultural memory, and enduring material atmosphere.
+      </p>
+    </header>
+
+    <div class="project-showcases">
+      <a class="project" href="#temple-installation" aria-label="View Temple Installation project">
+        <img class="project-image" src="../image/mural design/1.png" alt="Temple-inspired mural relief installation with monumental detail" />
+        <span class="project-number">01</span>
+        <span class="watermark">Temple</span>
+        <span class="project-content">
+          <span class="project-meta">
+            <span>Temple Installation</span>
+            <span>Stone Relief &bull; 2025</span>
+          </span>
+          <span class="project-title">Temple Installation</span>
+          <span class="project-description">A heritage-scale relief composed through ornament, mythic detail, and architectural depth, designed to hold silence, shadow, and cultural permanence.</span>
+        </span>
+      </a>
+
+      <a class="project" href="#stone-courtyard" aria-label="View Stone Courtyard project">
+        <img class="project-image" src="../image/stone sculptures/1.png" alt="Classical stone sculpture installed in an architectural courtyard" />
+        <span class="project-number">02</span>
+        <span class="watermark">Stone</span>
+        <span class="project-content">
+          <span class="project-meta">
+            <span>Courtyard Commission</span>
+            <span>Stone Sculpture &bull; 2025</span>
+          </span>
+          <span class="project-title">Stone Courtyard</span>
+          <span class="project-description">A figurative stone presence shaped for an architectural exterior, balancing classical permanence with warm site-specific light.</span>
+        </span>
+      </a>
+
+      <a class="project" href="#metal-garden" aria-label="View Metal Garden project">
+        <img class="project-image" src="../image/metal work/1.png" alt="Large metal peacock sculpture installed in a garden setting" />
+        <span class="project-number">03</span>
+        <span class="watermark">Metal</span>
+        <span class="project-content">
+          <span class="project-meta">
+            <span>Garden Landmark</span>
+            <span>Metal Sculpture &bull; 2025</span>
+          </span>
+          <span class="project-title">Metal Garden</span>
+          <span class="project-description">A handcrafted metal installation where feathered structure, patina, and reflective detail create a ceremonial focal point within the landscape.</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <script>
+    const projects = [...document.querySelectorAll(".project")];
+
+    const moveProjects = () => {
+      const viewport = window.innerHeight;
+
+      projects.forEach((project) => {
+        const image = project.querySelector(".project-image");
+        const rect = project.getBoundingClientRect();
+        const progress = (rect.top - viewport) / (viewport + rect.height);
+        const drift = Math.max(-1, Math.min(1, progress)) * -24;
+
+        image.style.setProperty("--project-drift", `${drift}px`);
+      });
+    };
+
+    window.addEventListener("scroll", moveProjects, { passive: true });
+    window.addEventListener("resize", moveProjects);
+    moveProjects();
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/categories.css" />
+</head>
+<body>
+  <section class="categories-section" aria-label="Artwork categories">
+    <header class="section-header">
+      <div>
+        <p class="eyebrow reveal">CATEGORIES</p>
+        <h1 class="reveal">Exploring Material, Texture &amp; Monumentality</h1>
+      </div>
+      <p class="header-note reveal">
+        Five material halls tracing the studio practice through touch, relief, casting, stone, and metal.
+      </p>
+    </header>
+
+    <div class="category-panels">
+      <a class="category-panel" href="#clay-sculptures" aria-label="View Clay Sculptures">
+        <img class="panel-image" src="../image/Clay work/1.png" alt="Clay sculpture process work in dramatic studio light" />
+        <span class="panel-index">01</span>
+        <span class="panel-content">
+          <span class="panel-kicker">Process Hall</span>
+          <span class="panel-title">Clay Sculptures</span>
+          <span class="panel-description">Hand-shaped studies where gesture, anatomy, and raw surface become the first language of form.</span>
+        </span>
+      </a>
+
+      <a class="category-panel" href="#mural-design" aria-label="View Mural Design">
+        <img class="panel-image" src="../image/mural design/1.png" alt="Detailed mural relief with architectural narrative carving" />
+        <span class="panel-index">02</span>
+        <span class="panel-content">
+          <span class="panel-kicker">Relief Hall</span>
+          <span class="panel-title">Mural Design</span>
+          <span class="panel-description">Layered wall narratives composed through relief, ornament, texture, and monumental storytelling.</span>
+        </span>
+      </a>
+
+      <a class="category-panel" href="#metal-works" aria-label="View Metal Works">
+        <img class="panel-image" src="../image/metal work/1.png" alt="Handcrafted metal peacock sculpture with fine feather detail" />
+        <span class="panel-index">03</span>
+        <span class="panel-content">
+          <span class="panel-kicker">Metal Hall</span>
+          <span class="panel-title">Metal Works</span>
+          <span class="panel-description">Forged and assembled pieces with reflective edges, patina, and tactile structural rhythm.</span>
+        </span>
+      </a>
+
+      <a class="category-panel" href="#stone-sculptures" aria-label="View Stone Sculptures">
+        <img class="panel-image" src="../image/stone sculptures/1.png" alt="Classical stone sculpture with architectural presence" />
+        <span class="panel-index">04</span>
+        <span class="panel-content">
+          <span class="panel-kicker">Stone Hall</span>
+          <span class="panel-title">Stone Sculptures</span>
+          <span class="panel-description">Permanent figures and architectural forms shaped through weight, shadow, and carved stillness.</span>
+        </span>
+      </a>
+
+      <a class="category-panel" href="#casting-works" aria-label="View Casting Works">
+        <img class="panel-image" src="../image/casting work/1.png" alt="Cast garden sculpture with aged patina and handcrafted detail" />
+        <span class="panel-index">05</span>
+        <span class="panel-content">
+          <span class="panel-kicker">Casting Hall</span>
+          <span class="panel-title">Casting Works</span>
+          <span class="panel-description">Molten material translated into enduring sculptural presence, texture, and archival permanence.</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <script>
+    const panels = [...document.querySelectorAll(".category-panel")];
+
+    const movePanels = () => {
+      const viewport = window.innerHeight;
+
+      panels.forEach((panel) => {
+        const image = panel.querySelector(".panel-image");
+        const rect = panel.getBoundingClientRect();
+        const progress = (rect.top - viewport) / (viewport + rect.height);
+        const drift = Math.max(-1, Math.min(1, progress)) * -24;
+
+        image.style.setProperty("--panel-drift", `${drift}px`);
+      });
+    };
+
+    window.addEventListener("scroll", movePanels, { passive: true });
+    window.addEventListener("resize", movePanels);
+    movePanels();
+  </script>
+</body>
+</html>
+

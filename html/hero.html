@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinematic Sculpture Hero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/hero.css" />
+</head>
+<body>
+  <section class="hero" aria-label="Luxury sculpture portfolio introduction">
+    <div class="hero-copy">
+      <p class="eyebrow reveal">SCULPTURE &bull; MURAL &bull; METAL ART</p>
+      <h1 class="reveal">Crafting Timeless Sculptural Experiences</h1>
+      <p class="statement reveal">Transforming stone, metal, and form into monumental artistic narratives.</p>
+      <div class="hero-actions reveal">
+        <a class="btn-primary" href="featured-works-updated.html">Explore Works</a>
+        <a class="btn-secondary" href="process.html">View Process</a>
+      </div>
+    </div>
+
+    <figure class="hero-visual" aria-label="Dramatic sculptural artwork">
+      <div class="image-shell">
+        <img
+          class="hero-image"
+          src="../image/front.png"
+          alt="Stone sculpture with dramatic architectural lighting"
+        />
+      </div>
+      <figcaption class="art-credit">Material Studies</figcaption>
+    </figure>
+
+    <div class="scroll-indicator" aria-hidden="true">Scroll</div>
+  </section>
+
+  <script>
+    const heroVisual = document.querySelector(".hero-visual");
+    const heroImage = document.querySelector(".hero-image");
+
+    const moveHeroImage = () => {
+      const progress = Math.min(window.scrollY / window.innerHeight, 1);
+      heroVisual.style.setProperty("--parallax-y", `${progress * -22}px`);
+      heroImage.style.setProperty("--image-drift", `${progress * 28}px`);
+    };
+
+    window.addEventListener("scroll", moveHeroImage, { passive: true });
+    moveHeroImage();
+  </script>
+</body>
+</html>
+

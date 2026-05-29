@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nillaxmi Sculptures Navbar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../css/navbar.css" />
+</head>
+
+<body>
+
+<header class="museum-navbar" data-navbar>
+  <div class="nav-inner">
+
+    <!-- BRAND -->
+    <a
+      class="brand"
+      href="index.html"
+      aria-label="Nillaxmi Sculptures Home"
+    >
+      Nillaxmi Sculptures
+    </a>
+
+    <!-- DESKTOP NAV -->
+    <nav class="nav-actions" aria-label="Primary navigation">
+
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Home</a>
+
+        <a class="nav-link" href="index.html#about" target="_parent">
+          About
+        </a>
+
+        <a class="nav-link" href="index.html#featured-works" target="_parent">
+          Works
+        </a>
+
+        <a class="nav-link" href="index.html#process" target="_parent">
+          Process
+        </a>
+
+        <a class="nav-link" href="index.html#contact" target="_parent">
+          Contact
+        </a>
+      </div>
+
+      <a
+        class="nav-cta"
+        href="index.html#contact" target="_parent"
+      >
+        Commission a Project
+      </a>
+
+    </nav>
+
+    <!-- MOBILE TOGGLE -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open Menu"
+      aria-expanded="false"
+      data-menu-toggle
+    >
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-overlay" data-mobile-menu>
+
+  <nav class="mobile-menu" aria-label="Mobile Navigation">
+
+    <a href="index.html" target="_parent">Home</a>
+
+    <a href="index.html#about" target="_parent">
+      About
+    </a>
+
+    <a href="index.html#featured-works" target="_parent">
+      Works
+    </a>
+
+    <a href="index.html#process" target="_parent">
+      Process
+    </a>
+
+    <a href="index.html#contact" target="_parent">
+      Contact
+    </a>
+
+    <a
+      class="mobile-cta"
+      href="index.html#contact" target="_parent"
+    >
+      Commission a Project
+    </a>
+
+  </nav>
+
+</div>
+
+<script>
+
+  const navbar = document.querySelector("[data-navbar]");
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const mobileMenu = document.querySelector("[data-mobile-menu]");
+  const mobileLinks = document.querySelectorAll(".mobile-menu a");
+
+  /* =========================
+     NAVBAR SCROLL EFFECT
+  ========================== */
+
+  const setScrolledState = () => {
+
+    if (window.scrollY > 30) {
+      navbar.classList.add("is-scrolled");
+    } else {
+      navbar.classList.remove("is-scrolled");
+    }
+
+  };
+
+  window.addEventListener(
+    "scroll",
+    setScrolledState,
+    { passive: true }
+  );
+
+  setScrolledState();
+
+  /* =========================
+     MOBILE MENU
+  ========================== */
+
+  const closeMenu = () => {
+
+    menuToggle.classList.remove("is-open");
+    mobileMenu.classList.remove("is-open");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    document.body.style.overflow = "";
+
+  };
+
+  const openMenu = () => {
+
+    menuToggle.classList.add("is-open");
+    mobileMenu.classList.add("is-open");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      "true"
+    );
+
+    document.body.style.overflow = "hidden";
+
+  };
+
+  const toggleMenu = () => {
+
+    const isOpen =
+      menuToggle.classList.contains("is-open");
+
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+
+  };
+
+  menuToggle.addEventListener(
+    "click",
+    toggleMenu
+  );
+
+  /* =========================
+     CLOSE ON LINK CLICK
+  ========================== */
+
+  mobileLinks.forEach((link) => {
+
+    link.addEventListener(
+      "click",
+      () => {
+
+        closeMenu();
+
+      }
+    );
+
+  });
+
+  /* =========================
+     ESC KEY CLOSE
+  ========================== */
+
+  window.addEventListener(
+    "keydown",
+    (event) => {
+
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+
+    }
+  );
+
+  /* =========================
+     OUTSIDE CLICK CLOSE
+  ========================== */
+
+  mobileMenu.addEventListener(
+    "click",
+    (event) => {
+
+      if (
+        event.target === mobileMenu
+      ) {
+        closeMenu();
+      }
+
+    }
+  );
+
+</script>
+
+</body>
+</html>

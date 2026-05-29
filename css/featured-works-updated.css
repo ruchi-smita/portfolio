@@ -1,0 +1,939 @@
+﻿/* =======================================================
+   FEATURED WORKS — CINEMATIC LUXURY VERSION
+======================================================= */
+
+:root {
+
+  --black: #0F0F0F;
+  --charcoal: #1A1A1A;
+
+  --ivory: #F5F1E8;
+
+  --gold: #C6A972;
+
+  --muted: rgba(245,241,232,0.62);
+
+  --faint: rgba(245,241,232,0.08);
+
+  --gold-faint: rgba(198,169,114,0.25);
+
+  --ease-cinema:
+  cubic-bezier(0.19, 1, 0.22, 1);
+
+}
+
+/* =======================================================
+   RESET
+======================================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+
+  background:
+  radial-gradient(
+    circle at 70% 20%,
+    rgba(198,169,114,0.08),
+    transparent 28vw
+  ),
+
+  radial-gradient(
+    circle at 20% 80%,
+    rgba(245,241,232,0.03),
+    transparent 24vw
+  ),
+
+  linear-gradient(
+    135deg,
+    #0F0F0F,
+    #151515,
+    #1A1A1A
+  );
+
+  color:var(--ivory);
+
+  font-family:
+  "Inter",
+  sans-serif;
+
+  overflow-x:hidden;
+
+}
+
+/* =======================================================
+   GRAIN TEXTURE
+======================================================= */
+
+body::before{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:20;
+
+  pointer-events:none;
+
+  opacity:0.04;
+
+  background-image:
+
+  radial-gradient(
+    circle,
+    rgba(245,241,232,0.72) 0 1px,
+    transparent 1.35px
+  ),
+
+  radial-gradient(
+    circle,
+    rgba(198,169,114,0.42) 0 1px,
+    transparent 1.45px
+  );
+
+  background-position:
+  0 0,
+  3px 4px;
+
+  background-size:
+  4px 4px,
+  8px 8px;
+
+  mix-blend-mode:screen;
+
+}
+
+/* =======================================================
+   SECTION
+======================================================= */
+
+.works-section{
+
+  position:relative;
+
+  min-height:100svh;
+
+  padding:
+  clamp(70px,9vw,140px)
+  clamp(20px,6vw,110px);
+
+  isolation:isolate;
+
+  overflow:hidden;
+
+}
+
+/* =======================================================
+   GRID LINES
+======================================================= */
+
+.works-section::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:-2;
+
+  background:
+
+  linear-gradient(
+    90deg,
+    rgba(198,169,114,0.08) 1px,
+    transparent 1px
+  ),
+
+  linear-gradient(
+    rgba(245,241,232,0.03) 1px,
+    transparent 1px
+  );
+
+  background-size:
+  25vw 100%,
+  100% 34%;
+
+  opacity:0.38;
+
+  mask-image:
+  linear-gradient(
+    180deg,
+    rgba(0,0,0,0.82),
+    transparent 94%
+  );
+
+}
+
+/* =======================================================
+   HEADER
+======================================================= */
+
+.works-header{
+
+  display:grid;
+
+  grid-template-columns:
+  minmax(0,1fr)
+  minmax(260px,0.42fr);
+
+  align-items:end;
+
+  gap:clamp(30px,7vw,110px);
+
+  margin-bottom:
+  clamp(60px,8vw,120px);
+
+}
+
+.eyebrow{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:18px;
+
+  margin-bottom:
+  clamp(22px,3vw,44px);
+
+  color:var(--gold);
+
+  font-size:
+  clamp(0.68rem,0.72vw,0.78rem);
+
+  font-weight:600;
+
+  letter-spacing:0.28em;
+
+  text-transform:uppercase;
+
+}
+
+.eyebrow::before{
+
+  content:"";
+
+  width:
+  clamp(52px,7vw,118px);
+
+  height:1px;
+
+  background:var(--gold-faint);
+
+}
+
+h1{
+
+  max-width:920px;
+
+  font-family:
+  "Cinzel",
+  serif;
+
+  font-size:
+  clamp(3rem,6vw,8rem);
+
+  line-height:0.94;
+
+  font-weight:500;
+
+  text-transform:uppercase;
+
+}
+
+.intro{
+
+  max-width:360px;
+
+  padding-top:28px;
+
+  border-top:
+  1px solid var(--gold-faint);
+
+  color:var(--muted);
+
+  font-size:
+  clamp(0.94rem,1vw,1.08rem);
+
+  line-height:1.8;
+
+}
+
+/* =======================================================
+   MAIN GALLERY
+======================================================= */
+
+.works-gallery{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(12,minmax(0,1fr));
+
+  grid-auto-rows:
+  minmax(72px,7vw);
+
+  gap:
+  clamp(18px,2.4vw,38px);
+
+}
+
+/* =======================================================
+   WORK ITEMS
+======================================================= */
+
+.work-item{
+
+  position:relative;
+
+  overflow:hidden;
+
+  border:none;
+
+  background:var(--charcoal);
+
+  cursor:pointer;
+
+  text-align:left;
+
+  color:var(--ivory);
+
+  min-height:280px;
+
+  isolation:isolate;
+
+  opacity:0;
+
+  transform:translateY(40px);
+
+  animation:
+  revealUp 1.4s var(--ease-cinema)
+  forwards;
+
+}
+
+/* ===== GRID POSITION ===== */
+
+.work-item:nth-child(1){
+
+  grid-column:1 / span 7;
+  grid-row:span 7;
+
+}
+
+.work-item:nth-child(2){
+
+  grid-column:9 / span 4;
+  grid-row:span 4;
+
+  margin-top:70px;
+
+}
+
+.work-item:nth-child(3){
+
+  grid-column:8 / span 5;
+  grid-row:span 5;
+
+}
+
+.work-item:nth-child(4){
+
+  grid-column:2 / span 4;
+  grid-row:span 4;
+
+  margin-top:50px;
+
+}
+
+.work-item:nth-child(5){
+
+  grid-column:6 / span 4;
+  grid-row:span 3;
+
+}
+
+/* =======================================================
+   IMAGE
+======================================================= */
+
+.work-image{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  filter:
+
+  grayscale(48%)
+
+  contrast(1.15)
+
+  brightness(0.72)
+
+  saturate(0.7);
+
+  transform:scale(1.03);
+
+  transition:
+
+  transform 1.6s var(--ease-cinema),
+
+  filter 1s var(--ease-cinema);
+
+}
+
+.work-item:hover .work-image{
+
+  transform:scale(1.08);
+
+  filter:
+
+  grayscale(18%)
+
+  contrast(1.18)
+
+  brightness(0.82)
+
+  saturate(0.82);
+
+}
+
+/* =======================================================
+   OVERLAY
+======================================================= */
+
+.work-item::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:2;
+
+  background:
+
+  linear-gradient(
+    180deg,
+    rgba(0,0,0,0.05),
+    rgba(0,0,0,0.82)
+  ),
+
+  linear-gradient(
+    90deg,
+    rgba(0,0,0,0.4),
+    rgba(0,0,0,0)
+  );
+
+  transition:0.8s;
+
+}
+
+.work-item:hover::before{
+  opacity:0.55;
+}
+
+/* =======================================================
+   TEXT CONTENT
+======================================================= */
+
+.work-info{
+
+  position:absolute;
+
+  left:34px;
+  right:34px;
+  bottom:34px;
+
+  z-index:5;
+
+  transform:translateY(18px);
+
+  opacity:0;
+
+  transition:
+  0.9s var(--ease-cinema);
+
+}
+
+.work-item:hover .work-info{
+
+  transform:translateY(0);
+
+  opacity:1;
+
+}
+
+.work-kicker{
+
+  display:block;
+
+  margin-bottom:12px;
+
+  color:var(--gold);
+
+  font-size:0.68rem;
+
+  font-weight:600;
+
+  letter-spacing:0.22em;
+
+  text-transform:uppercase;
+
+}
+
+.work-title{
+
+  display:block;
+
+  max-width:420px;
+
+  font-family:
+  "Cinzel",
+  serif;
+
+  font-size:
+  clamp(1.4rem,2vw,2.7rem);
+
+  line-height:1.12;
+
+  text-transform:uppercase;
+
+}
+
+/* =======================================================
+   GALLERY NOTE
+======================================================= */
+
+.gallery-note{
+
+  display:flex;
+
+  justify-content:flex-end;
+
+  margin-top:
+  clamp(38px,5vw,76px);
+
+}
+
+.gallery-note p{
+
+  max-width:420px;
+
+  color:
+  rgba(245,241,232,0.48);
+
+  font-size:0.72rem;
+
+  line-height:1.9;
+
+  letter-spacing:0.18em;
+
+  text-transform:uppercase;
+
+}
+
+/* =======================================================
+   MODAL
+======================================================= */
+
+.gallery-modal{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:9999;
+
+  overflow-y:auto;
+
+  padding:120px 40px 60px;
+
+  background:
+  rgba(0,0,0,0.95);
+
+  backdrop-filter:blur(14px);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  transition:0.5s ease;
+
+}
+
+.gallery-modal.active{
+
+  opacity:1;
+
+  visibility:visible;
+
+}
+
+/* =======================================================
+   CLOSE BUTTON
+======================================================= */
+
+.close-modal{
+
+  position:fixed;
+
+  top:24px;
+  right:28px;
+
+  width:60px;
+  height:60px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:
+  rgba(255,255,255,0.06);
+
+  color:var(--ivory);
+
+  font-size:2rem;
+
+  cursor:pointer;
+
+  z-index:10000;
+
+  transition:0.4s;
+
+}
+
+.close-modal:hover{
+
+  background:var(--gold);
+
+  color:black;
+
+  transform:rotate(90deg);
+
+}
+
+/* =======================================================
+   MODAL GRID
+======================================================= */
+
+.gallery-grid{
+
+  width:min(1600px,100%);
+
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(360px,1fr));
+
+  gap:50px;
+
+}
+
+/* =======================================================
+   ART CARD
+======================================================= */
+
+.art-card{
+
+  background:
+  rgba(22,22,22,0.92);
+
+  border:
+  1px solid rgba(198,169,114,0.18);
+
+  overflow:hidden;
+
+  transition:
+  transform 0.7s var(--ease-cinema),
+  border-color 0.7s;
+
+}
+
+.art-card:hover{
+
+  transform:translateY(-8px);
+
+  border-color:var(--gold);
+
+}
+
+/* =======================================================
+   ART IMAGE
+======================================================= */
+
+.art-image{
+
+  width:100%;
+
+  overflow:hidden;
+
+  background:black;
+
+}
+
+.art-image img{
+
+  width:100%;
+
+  height:auto;
+
+  display:block;
+
+  object-fit:contain;
+
+  transition:
+  transform 1.4s var(--ease-cinema);
+
+}
+
+.art-card:hover .art-image img{
+
+  transform:scale(1.04);
+
+}
+
+/* =======================================================
+   ART CONTENT
+======================================================= */
+
+.art-content{
+
+  padding:32px;
+
+}
+
+.art-category{
+
+  display:block;
+
+  margin-bottom:16px;
+
+  color:var(--gold);
+
+  font-size:0.7rem;
+
+  font-weight:600;
+
+  letter-spacing:0.24em;
+
+  text-transform:uppercase;
+
+}
+
+.art-content h3{
+
+  margin-bottom:18px;
+
+  font-family:
+  "Cinzel",
+  serif;
+
+  font-size:
+  clamp(1.5rem,2vw,2.4rem);
+
+  line-height:1.16;
+
+  font-weight:500;
+
+  text-transform:uppercase;
+
+}
+
+.art-content p{
+
+  color:var(--muted);
+
+  line-height:1.9;
+
+  font-size:0.98rem;
+
+}
+
+/* =======================================================
+   REVEAL
+======================================================= */
+
+.reveal{
+
+  opacity:0;
+
+  transform:translateY(30px);
+
+  animation:
+  revealUp 1.4s var(--ease-cinema)
+  forwards;
+
+}
+
+.reveal:nth-child(1){
+  animation-delay:120ms;
+}
+
+.reveal:nth-child(2){
+  animation-delay:260ms;
+}
+
+@keyframes revealUp{
+
+  to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+  }
+
+}
+
+/* =======================================================
+   TABLET
+======================================================= */
+
+@media(max-width:1060px){
+
+  .works-header{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .intro{
+    max-width:600px;
+  }
+
+}
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media(max-width:760px){
+
+  .works-section{
+
+    padding:
+    60px 18px 80px;
+
+  }
+
+  h1{
+
+    font-size:
+    clamp(2.4rem,12vw,4.8rem);
+
+  }
+
+  .works-gallery{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+  }
+
+  .work-item{
+
+    min-height:420px !important;
+
+    margin-top:0 !important;
+
+  }
+
+  .work-info{
+
+    opacity:1;
+
+    transform:none;
+
+  }
+
+  .gallery-grid{
+
+    grid-template-columns:1fr;
+
+    gap:30px;
+
+  }
+
+  .gallery-modal{
+
+    padding:
+    100px 18px 40px;
+
+  }
+
+  .art-content{
+
+    padding:24px;
+
+  }
+
+  .close-modal{
+
+    width:52px;
+    height:52px;
+
+    top:18px;
+    right:18px;
+
+  }
+
+}
+
+/* =======================================================
+   SMALL MOBILE
+======================================================= */
+
+@media(max-width:480px){
+
+  .work-item{
+
+    min-height:320px !important;
+
+  }
+
+  .art-content h3{
+
+    font-size:1.5rem;
+
+  }
+
+}
+
+/* =======================================================
+   REDUCED MOTION
+======================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+
+    animation:none !important;
+
+    transition:none !important;
+
+    scroll-behavior:auto !important;
+
+  }
+
+}

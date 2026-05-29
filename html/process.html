@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Process</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/process.css" />
+</head>
+<body>
+  <section class="process-section" aria-label="Artistic process">
+    <header class="process-header">
+      <div>
+        <p class="eyebrow reveal">PROCESS</p>
+        <h1 class="reveal">From Raw Material To Monumental Artistry</h1>
+      </div>
+      <p class="header-note reveal">
+        A quiet progression from first thought to final placement, shaped through hand, material, shadow, and time.
+      </p>
+    </header>
+
+    <div class="process-list">
+      <article class="process-stage">
+        <figure class="stage-visual">
+          <img class="stage-image" src="../image/Clay work/2.png" alt="Clay sculpture concept work in a raw studio setting" />
+        </figure>
+        <div class="stage-copy">
+          <span class="stage-number">01</span>
+          <span class="stage-title">Concept &amp; Sketching</span>
+          <p class="stage-description">Every commission begins as a study of place, proportion, and emotional weight. Early forms are explored through sketches, clay studies, and quiet observation.</p>
+        </div>
+      </article>
+
+      <article class="process-stage">
+        <figure class="stage-visual">
+          <img class="stage-image" src="../image/stone sculptures/1.png" alt="Stone sculpture material study with architectural presence" />
+        </figure>
+        <div class="stage-copy">
+          <span class="stage-number">02</span>
+          <span class="stage-title">Material Selection</span>
+          <p class="stage-description">Stone, clay, metal, and casting surfaces are selected for their density, grain, patina, and permanence. The material is chosen to carry the story before it is shaped.</p>
+        </div>
+      </article>
+
+      <article class="process-stage">
+        <figure class="stage-visual">
+          <img class="stage-image" src="../image/Clay work/1.png" alt="Unfinished clay sculpture showing sculpting and formation process" />
+        </figure>
+        <div class="stage-copy">
+          <span class="stage-number">03</span>
+          <span class="stage-title">Sculpting &amp; Formation</span>
+          <p class="stage-description">The form is built through pressure, subtraction, joining, and instinct. Surfaces begin to hold gesture, anatomy, rhythm, and the visible evidence of the hand.</p>
+        </div>
+      </article>
+
+      <article class="process-stage">
+        <figure class="stage-visual">
+          <img class="stage-image" src="../image/mural design/1.png" alt="Detailed mural relief showing refinement and ornamental detailing" />
+        </figure>
+        <div class="stage-copy">
+          <span class="stage-number">04</span>
+          <span class="stage-title">Refinement &amp; Detailing</span>
+          <p class="stage-description">Texture, contour, ornament, and light are refined until the work gains depth. Details are composed to reward both distant viewing and intimate inspection.</p>
+        </div>
+      </article>
+
+      <article class="process-stage">
+        <figure class="stage-visual">
+          <img class="stage-image" src="../image/casting work/1.png" alt="Finished cast sculpture installed in a garden setting" />
+        </figure>
+        <div class="stage-copy">
+          <span class="stage-number">05</span>
+          <span class="stage-title">Final Installation</span>
+          <p class="stage-description">The completed piece is placed in conversation with architecture, landscape, and light, becoming a permanent presence within its commissioned environment.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <script>
+    const stages = [...document.querySelectorAll(".process-stage")];
+
+    const moveStages = () => {
+      const viewport = window.innerHeight;
+
+      stages.forEach((stage) => {
+        const image = stage.querySelector(".stage-image");
+        const rect = stage.getBoundingClientRect();
+        const progress = (rect.top - viewport) / (viewport + rect.height);
+        const drift = Math.max(-1, Math.min(1, progress)) * -22;
+
+        image.style.setProperty("--stage-drift", `${drift}px`);
+      });
+    };
+
+    window.addEventListener("scroll", moveStages, { passive: true });
+    window.addEventListener("resize", moveStages);
+    moveStages();
+  </script>
+</body>
+</html>
+

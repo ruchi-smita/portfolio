@@ -1,0 +1,717 @@
+﻿:root {
+  --black: #0F0F0F;
+  --charcoal: #1A1A1A;
+  --ivory: #F5F1E8;
+  --gold: #C6A972;
+
+  --muted: rgba(245, 241, 232, 0.68);
+  --line: rgba(198, 169, 114, 0.18);
+
+  --nav-height: 92px;
+
+  --ease-cinema: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* =========================
+   RESET
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--black);
+}
+
+body {
+  margin: 0;
+  min-height: var(--nav-height);
+
+  color: var(--ivory);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15, 15, 15, 0.42),
+      rgba(15, 15, 15, 0.92)
+    ),
+    url("../image/stone sculptures/1.png")
+    center center / cover no-repeat,
+    var(--black);
+
+  font-family: "Inter", system-ui, sans-serif;
+
+  overflow-x: hidden;
+}
+
+/* =========================
+   GRAIN TEXTURE
+========================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: 20;
+
+  pointer-events: none;
+
+  opacity: 0.03;
+
+  background-image:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(245, 241, 232, 0.7) 0 1px,
+      transparent 1.4px
+    ),
+
+    radial-gradient(
+      circle at 70% 65%,
+      rgba(198, 169, 114, 0.52) 0 1px,
+      transparent 1.5px
+    );
+
+  background-size:
+    3px 3px,
+    5px 5px;
+
+  mix-blend-mode: screen;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.museum-navbar {
+  position: fixed;
+
+  inset: 0 0 auto 0;
+
+  z-index: 1000;
+
+  height: var(--nav-height);
+
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid transparent;
+
+  background: transparent;
+
+  transition:
+    height 700ms var(--ease-cinema),
+    background 700ms var(--ease-cinema),
+    border-color 700ms var(--ease-cinema),
+    backdrop-filter 700ms var(--ease-cinema),
+    box-shadow 700ms var(--ease-cinema);
+}
+
+/* =========================
+   SCROLLED STATE
+========================= */
+
+.museum-navbar.is-scrolled {
+  height: 74px;
+
+  border-bottom-color:
+    rgba(198, 169, 114, 0.26);
+
+  background:
+    rgba(15, 15, 15, 0.82);
+
+  backdrop-filter:
+    blur(16px)
+    saturate(120%);
+
+  -webkit-backdrop-filter:
+    blur(16px)
+    saturate(120%);
+
+  box-shadow:
+    0 12px 40px rgba(0,0,0,0.32);
+}
+
+.museum-navbar::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(245, 241, 232, 0.018) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(245, 241, 232, 0.014) 1px,
+      transparent 1px
+    );
+
+  background-size: 12px 12px;
+
+  transition:
+    opacity 700ms var(--ease-cinema);
+}
+
+.museum-navbar.is-scrolled::after {
+  opacity: 0.18;
+}
+
+/* =========================
+   NAV INNER
+========================= */
+
+.nav-inner {
+  width: min(100% - 56px, 1520px);
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 56px;
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.brand {
+  position: relative;
+  z-index: 5;
+
+  color: var(--ivory);
+
+  font-family: "Cinzel", Georgia, serif;
+
+  font-size: clamp(1.1rem, 1.6vw, 1.65rem);
+
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+
+  transition:
+    opacity 500ms var(--ease-cinema),
+    transform 600ms var(--ease-cinema),
+    color 500ms var(--ease-cinema);
+}
+
+.brand:hover {
+  color: var(--gold);
+
+  transform: translateY(-1px);
+}
+
+/* =========================
+   DESKTOP NAV
+========================= */
+
+.nav-actions {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+
+  gap: clamp(28px, 4vw, 72px);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: clamp(22px, 2.8vw, 48px);
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.nav-link {
+  position: relative;
+
+  color: var(--muted);
+
+  font-size: 0.72rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.22em;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+
+  transition:
+    color 500ms var(--ease-cinema),
+    opacity 500ms var(--ease-cinema),
+    transform 500ms var(--ease-cinema);
+}
+
+.nav-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: -12px;
+
+  height: 1px;
+
+  background: var(--gold);
+
+  transform: scaleX(0);
+
+  transform-origin: right;
+
+  transition:
+    transform 700ms var(--ease-cinema);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--ivory);
+
+  transform: translateY(-2px);
+
+  outline: none;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+
+  transform-origin: left;
+}
+
+/* =========================
+   CTA BUTTON
+========================= */
+
+.nav-cta {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 46px;
+
+  padding: 0 22px;
+
+  border:
+    1px solid rgba(198, 169, 114, 0.55);
+
+  color: var(--ivory);
+
+  background:
+    rgba(198, 169, 114, 0.04);
+
+  font-size: 0.68rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+
+  transition:
+    border-color 600ms var(--ease-cinema),
+    color 600ms var(--ease-cinema),
+    background 600ms var(--ease-cinema),
+    transform 600ms var(--ease-cinema),
+    box-shadow 600ms var(--ease-cinema);
+}
+
+.nav-cta:hover,
+.nav-cta:focus-visible {
+  border-color: var(--gold);
+
+  color: var(--gold);
+
+  background:
+    rgba(198, 169, 114, 0.08);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 28px rgba(198, 169, 114, 0.12);
+
+  outline: none;
+}
+
+/* =========================
+   MOBILE TOGGLE
+========================= */
+
+.menu-toggle {
+  display: none;
+
+  position: relative;
+
+  z-index: 1200;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  border:
+    1px solid rgba(198, 169, 114, 0.32);
+
+  background:
+    rgba(15, 15, 15, 0.24);
+
+  color: var(--ivory);
+
+  cursor: pointer;
+
+  transition:
+    border-color 500ms var(--ease-cinema),
+    transform 500ms var(--ease-cinema),
+    background 500ms var(--ease-cinema);
+}
+
+.menu-toggle:hover {
+  border-color: rgba(198, 169, 114, 0.72);
+
+  background:
+    rgba(198, 169, 114, 0.06);
+
+  transform: translateY(-1px);
+}
+
+.menu-line {
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+
+  height: 1px;
+
+  background: currentColor;
+
+  transition:
+    transform 700ms var(--ease-cinema),
+    top 700ms var(--ease-cinema),
+    opacity 500ms var(--ease-cinema);
+}
+
+.menu-line:first-child {
+  top: 17px;
+}
+
+.menu-line:last-child {
+  top: 26px;
+}
+
+.menu-toggle.is-open .menu-line:first-child {
+  top: 21px;
+
+  transform: rotate(45deg);
+}
+
+.menu-toggle.is-open .menu-line:last-child {
+  top: 21px;
+
+  transform: rotate(-45deg);
+}
+
+/* =========================
+   MOBILE OVERLAY
+========================= */
+
+.mobile-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1100;
+
+  display: grid;
+  place-items: center;
+
+  padding:
+    96px 28px 48px;
+
+  background:
+    rgba(10, 10, 10, 0.96);
+
+  backdrop-filter:
+    blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 700ms var(--ease-cinema),
+    visibility 700ms var(--ease-cinema);
+}
+
+.mobile-overlay::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border:
+    1px solid rgba(198, 169, 114, 0.08);
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(198, 169, 114, 0.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 25vw 100%;
+
+  opacity: 0.28;
+
+  pointer-events: none;
+}
+
+.mobile-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 30px;
+}
+
+.mobile-menu a {
+  color: var(--ivory);
+
+  font-family: "Cinzel", Georgia, serif;
+
+  font-size:
+    clamp(1.8rem, 10vw, 4.4rem);
+
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+
+  opacity: 0;
+
+  transform: translateY(24px);
+
+  transition:
+    opacity 700ms var(--ease-cinema),
+    transform 700ms var(--ease-cinema),
+    color 500ms var(--ease-cinema);
+}
+
+.mobile-overlay.is-open .mobile-menu a {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* stagger animation */
+
+.mobile-overlay.is-open .mobile-menu a:nth-child(1) {
+  transition-delay: 120ms;
+}
+
+.mobile-overlay.is-open .mobile-menu a:nth-child(2) {
+  transition-delay: 200ms;
+}
+
+.mobile-overlay.is-open .mobile-menu a:nth-child(3) {
+  transition-delay: 280ms;
+}
+
+.mobile-overlay.is-open .mobile-menu a:nth-child(4) {
+  transition-delay: 360ms;
+}
+
+.mobile-overlay.is-open .mobile-menu a:nth-child(5) {
+  transition-delay: 440ms;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a:focus-visible {
+  color: var(--gold);
+
+  outline: none;
+}
+
+/* =========================
+   MOBILE CTA
+========================= */
+
+.mobile-cta {
+  margin-top: 10px;
+
+  padding: 16px 22px;
+
+  border:
+    1px solid rgba(198, 169, 114, 0.65);
+
+  color: var(--gold) !important;
+
+  font-family:
+    "Inter",
+    system-ui,
+    sans-serif !important;
+
+  font-size:
+    0.72rem !important;
+
+  font-weight: 600;
+
+  letter-spacing:
+    0.2em !important;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  :root {
+    --nav-height: 76px;
+  }
+
+  .nav-inner {
+    width: min(100% - 32px, 1520px);
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .brand {
+    font-size: 0.98rem;
+
+    letter-spacing: 0.12em;
+  }
+
+  .museum-navbar.is-scrolled {
+    height: 68px;
+  }
+
+  /* PERFORMANCE FIX */
+
+  body {
+    background-attachment: scroll;
+  }
+
+  body::before {
+    opacity: 0.02;
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 520px) {
+
+  .nav-inner {
+    width: min(100% - 24px, 1520px);
+
+    gap: 14px;
+  }
+
+  .brand {
+    max-width:
+      calc(100vw - 92px);
+
+    font-size: 0.82rem;
+
+    letter-spacing: 0.08em;
+
+    line-height: 1.15;
+
+    overflow-wrap: anywhere;
+  }
+
+  .menu-toggle {
+    width: 40px;
+    height: 40px;
+
+    flex: 0 0 40px;
+  }
+
+  .mobile-menu {
+    gap: 24px;
+  }
+
+  .mobile-menu a {
+    font-size:
+      clamp(1.5rem, 12vw, 3rem);
+  }
+
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    scroll-behavior: auto !important;
+
+    transition-duration: 1ms !important;
+
+    animation-duration: 1ms !important;
+  }
+
+}

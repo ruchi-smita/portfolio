@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Featured Works</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../css/featured-works-updated.css" />
+</head>
+
+<body>
+
+<section class="works-section" aria-label="Featured works">
+
+  <header class="works-header">
+
+    <div>
+      <p class="eyebrow reveal">FEATURED WORKS</p>
+
+      <h1 class="reveal">
+        Monumental Expressions In Form & Texture
+      </h1>
+    </div>
+
+    <p class="intro reveal">
+      A curated archive of real commissioned sculptures,
+      murals, casting studies, and architectural installations
+      crafted by Nillaxmi Sculptures.
+    </p>
+
+  </header>
+
+  <div class="works-gallery">
+
+    <!-- CASTING -->
+
+    <button
+      class="work-item"
+      data-gallery="casting work"
+      aria-label="Open Casting Work Gallery"
+    >
+
+      <img
+        class="work-image"
+        src="../image/casting work/1.png"
+        alt="Casting Work"
+      >
+
+      <span class="work-info">
+
+        <span class="work-kicker">
+          Casting Work
+        </span>
+
+        <span class="work-title">
+          Bronze & Decorative Casting
+        </span>
+
+      </span>
+
+    </button>
+
+    <!-- CLAY -->
+
+    <button
+      class="work-item"
+      data-gallery="Clay work"
+      aria-label="Open Clay Work Gallery"
+    >
+
+      <img
+        class="work-image"
+        src="../image/Clay work/1.png"
+        alt="Clay Work"
+      >
+
+      <span class="work-info">
+
+        <span class="work-kicker">
+          Clay Work
+        </span>
+
+        <span class="work-title">
+          Raw Sculptural Formation
+        </span>
+
+      </span>
+
+    </button>
+
+    <!-- METAL -->
+
+    <button
+      class="work-item"
+      data-gallery="metal work"
+      aria-label="Open Metal Work Gallery"
+    >
+
+      <img
+        class="work-image"
+        src="../image/metal work/1.png"
+        alt="Metal Work"
+      >
+
+      <span class="work-info">
+
+        <span class="work-kicker">
+          Metal Work
+        </span>
+
+        <span class="work-title">
+          Metal Sculptural Installations
+        </span>
+
+      </span>
+
+    </button>
+
+    <!-- MURAL -->
+
+    <button
+      class="work-item"
+      data-gallery="mural design"
+      aria-label="Open Mural Gallery"
+    >
+
+      <img
+        class="work-image"
+        src="../image/mural design/1.png"
+        alt="Mural Design"
+      >
+
+      <span class="work-info">
+
+        <span class="work-kicker">
+          Mural Design
+        </span>
+
+        <span class="work-title">
+          Architectural Relief Murals
+        </span>
+
+      </span>
+
+    </button>
+
+    <!-- STONE -->
+
+    <button
+      class="work-item"
+      data-gallery="stone sculptures"
+      aria-label="Open Stone Sculpture Gallery"
+    >
+
+      <img
+        class="work-image"
+        src="../image/stone sculptures/1.png"
+        alt="Stone Sculptures"
+      >
+
+      <span class="work-info">
+
+        <span class="work-kicker">
+          Stone Sculpture
+        </span>
+
+        <span class="work-title">
+          Monumental Stone Presence
+        </span>
+
+      </span>
+
+    </button>
+
+  </div>
+
+</section>
+
+<!-- MODAL -->
+
+<div class="gallery-modal" id="galleryModal">
+
+  <button class="close-modal" id="closeModal">
+    &times;
+  </button>
+
+  <div class="gallery-grid" id="galleryGrid"></div>
+
+</div>
+
+<script>
+
+const galleries = {
+
+  "casting work": [
+
+    {
+      image: "../image/casting work/1.png",
+      title: "Bronze Fountain Sculpture",
+      description:
+      "Decorative bronze casting created for outdoor luxury landscape environments."
+    },
+
+    {
+      image: "../image/casting work/2.png",
+      title: "Abstract Deer Form",
+      description:
+      "Elegant elongated casting exploring movement and balance through organic curvature."
+    },
+
+    {
+      image: "../image/casting work/3.png",
+      title: "Ceramic Inspired Form",
+      description:
+      "Experimental sculptural casting with oxidized texture and primitive silhouette."
+    },
+
+    {
+      image: "../image/casting work/4.png",
+      title: "Decorative Tribal Figure",
+      description:
+      "Symbolic sculptural work inspired by tribal geometry and handcrafted detailing."
+    },
+
+    {
+      image: "../image/casting work/5.png",
+      title: "Stone Elephant Form",
+      description:
+      "Massive abstract elephant sculpture focused on volume and simplified anatomy."
+    },
+
+    {
+      image: "../image/casting work/6.png",
+      title: "Classical Decorative Relief",
+      description:
+      "Traditional ornamental composition influenced by European decorative sculpture."
+    },
+
+    {
+      image: "../image/casting work/7.png",
+      title: "Equine Fragment Study",
+      description:
+      "Partial horse anatomy study emphasizing muscular tension and motion."
+    }
+
+  ],
+
+  "Clay work": [
+
+    {
+      image: "../image/Clay work/1.png",
+      title: "Dr. Ambedkar Monument",
+      description:
+      "Large-scale clay sculpture prepared as the foundation for monumental public casting."
+    },
+
+    {
+      image: "../image/Clay work/2.png",
+      title: "Portrait Study",
+      description:
+      "Realistic clay portrait focused on facial anatomy, proportion and emotional detail."
+    },
+
+    {
+      image: "../image/Clay work/3.png",
+      title: "Mythological Figure",
+      description:
+      "Handcrafted clay deity sculpture exploring classical drapery and spiritual symbolism."
+    },
+
+    {
+      image: "../image/Clay work/4.png",
+      title: "Human Bust Formation",
+      description:
+      "Raw clay bust capturing texture, expression and unfinished sculptural energy."
+    },
+
+    {
+      image: "../image/Clay work/5.png",
+      title: "Monumental Figure Study",
+      description:
+      "Large clay sculpture designed for architectural and heritage installations."
+    },
+
+    {
+      image: "../image/Clay work/6.png",
+      title: "Classical Female Sculpture",
+      description:
+      "Detailed clay figure inspired by Greco-Roman sculptural proportions."
+    }
+
+  ],
+
+  "metal work": [
+
+    {
+      image: "../image/metal work/1.png",
+      title: "Tree Installation",
+      description:
+      "Massive metal tree sculpture composed of welded textured fragments."
+    },
+
+    {
+      image: "../image/metal work/2.png",
+      title: "Wire Portrait",
+      description:
+      "Expressive human portrait formed entirely through layered metal wiring."
+    },
+
+    {
+      image: "../image/metal work/3.png",
+      title: "Geometric Sphere",
+      description:
+      "Industrial abstract sphere constructed through intersecting steel elements."
+    },
+
+    {
+      image: "../image/metal work/4.png",
+      title: "Curved Architectural Form",
+      description:
+      "Outdoor sculptural installation designed to interact with landscape perspective."
+    },
+
+    {
+      image: "../image/metal work/5.png",
+      title: "Reflective Human Silhouettes",
+      description:
+      "Minimal metal figures exploring movement, balance and reflection."
+    }
+
+  ],
+
+  "mural design": [
+
+    {
+      image: "../image/mural design/1.png",
+      title: "Ancient Wheel Relief",
+      description:
+      "Architectural mural inspired by temple carving and heritage symbolism."
+    },
+
+    {
+      image: "../image/mural design/2.png",
+      title: "Organic Wall Composition",
+      description:
+      "Luxury textured mural integrating botanical sculptural detailing."
+    },
+
+    {
+      image: "../image/mural design/3.png",
+      title: "Vertical Floral Relief",
+      description:
+      "Handcrafted ornamental relief designed for luxury interior architecture."
+    },
+
+    {
+      image: "../image/mural design/4.png",
+      title: "Gold Abstract Texture",
+      description:
+      "Contemporary mural composition with layered metallic detailing."
+    }
+
+  ],
+
+  "stone sculptures": [
+
+    {
+      image: "../image/stone sculptures/1.png",
+      title: "Roman Warrior Sculpture",
+      description:
+      "Classical stone monument inspired by Greco-Roman heroic forms."
+    },
+
+    {
+      image: "../image/stone sculptures/2.png",
+      title: "Surreal Human Form",
+      description:
+      "Conceptual stone sculpture exploring emotional distortion and silence."
+    },
+
+    {
+      image: "../image/stone sculptures/3.png",
+      title: "Abstract Face Composition",
+      description:
+      "Minimal sculptural study focused on geometry and human identity."
+    },
+
+    {
+      image: "../image/stone sculptures/4.png",
+      title: "Textured Wall Installation",
+      description:
+      "Architectural stone surface integrating rhythm and circular geometry."
+    },
+
+    {
+      image: "../image/stone sculptures/5.png",
+      title: "Luxury Decorative Frame",
+      description:
+      "Stone relief frame designed for premium hospitality interiors."
+    }
+
+  ]
+
+};
+
+const modal = document.getElementById("galleryModal");
+
+const grid = document.getElementById("galleryGrid");
+
+const closeBtn = document.getElementById("closeModal");
+
+document.querySelectorAll(".work-item").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const folder = button.dataset.gallery;
+
+    const artworks = galleries[folder];
+
+    grid.innerHTML = "";
+
+    artworks.forEach((art) => {
+
+      const item = document.createElement("div");
+
+      item.className = "gallery-item";
+
+      item.innerHTML = `
+
+        <div class="art-card">
+
+          <div class="art-image">
+
+            <img
+              src="${art.image}"
+              loading="lazy"
+              alt="${art.title}"
+            >
+
+          </div>
+
+          <div class="art-content">
+
+            <span class="art-category">
+              ${folder}
+            </span>
+
+            <h3>
+              ${art.title}
+            </h3>
+
+            <p>
+              ${art.description}
+            </p>
+
+          </div>
+
+        </div>
+
+      `;
+
+      grid.appendChild(item);
+
+    });
+
+    modal.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+  });
+
+});
+
+closeBtn.addEventListener("click", () => {
+
+  modal.classList.remove("active");
+
+  document.body.style.overflow = "";
+
+});
+
+modal.addEventListener("click", (e) => {
+
+  if(e.target === modal){
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
