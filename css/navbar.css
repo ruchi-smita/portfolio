@@ -193,6 +193,10 @@ body::before {
   position: relative;
   z-index: 5;
 
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
   color: var(--ivory);
 
   font-family: "Cinzel", Georgia, serif;
@@ -206,13 +210,32 @@ body::before {
   line-height: 1;
 
   text-decoration: none;
-
   text-transform: uppercase;
 
   transition:
     opacity 500ms var(--ease-cinema),
     transform 600ms var(--ease-cinema),
     color 500ms var(--ease-cinema);
+}
+
+.brand-logo {
+  display: block;
+
+  width: 58px;
+  height: 58px;
+
+  border:
+    1px solid rgba(198, 169, 114, 0.55);
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.brand-name {
+  display: inline-block;
 }
 
 .brand:hover {
@@ -633,9 +656,15 @@ body::before {
   }
 
   .brand {
-    font-size: 0.98rem;
+    flex: 0 1 auto;
 
+    font-size: 0.98rem;
     letter-spacing: 0.12em;
+  }
+
+  .brand-logo {
+    width: 48px;
+    height: 48px;
   }
 
   .museum-navbar.is-scrolled {
@@ -670,12 +699,21 @@ body::before {
     max-width:
       calc(100vw - 92px);
 
+    gap: 10px;
+
     font-size: 0.82rem;
-
     letter-spacing: 0.08em;
-
     line-height: 1.15;
+  }
 
+  .brand-logo {
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-name {
     overflow-wrap: anywhere;
   }
 
